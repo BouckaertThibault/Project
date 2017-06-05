@@ -5,7 +5,7 @@ class DbClass:
         self.__dsn = {
             "host": "localhost",
             "user": "thibault",
-            "passwd": "",
+            "passwd": "macbookPRO1",
             "db": "WateroMatic"
         }
 
