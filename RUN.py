@@ -54,7 +54,7 @@ def lees_temperatuur():
 
 
 def lcd():
-    LCD.WriteText(scherm, "Reservoir: " + str(lees_waterbak()) + " Temp: " + str(lees_temperatuur()) + "ß₥C")
+    LCD.WriteText(scherm, "Reservoir: " + str(meting_naar_liter()) + "L" + "Temp: " + str(round(lees_temperatuur(), 1)) + chr(223) + "C")
 
 
 def waterpomp_aan():
@@ -73,7 +73,7 @@ def meting_naar_liter():
 
 try:
     print(str(lees_reservoir()) + " cm " + str(round(meting_naar_liter(), 2)) + " L")
-    LCD.WriteText(scherm, "Reservoir: " + str(meting_naar_liter()) + "L" + "Temp: " + str(round(lees_temperatuur(), 1)) +  chr(223) + "C")
+    lcd()
 
 except(KeyboardInterrupt):
     LCD.uitzetten(scherm)
