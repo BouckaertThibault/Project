@@ -2,6 +2,7 @@ from LCD_class import LCD
 from hcsr04sensor import sensor
 import RPi.GPIO as GPIO
 import time
+from DbClass import DbClass
 
 
 GPIO.setmode(GPIO.BCM)
@@ -13,6 +14,7 @@ trig_waterbak = 18
 echo_waterbak = 23
 trig_reservoir = 24
 echo_reservoir = 17
+
 
 #####volume variabelen voor reservoir#####
 meting_vol = 4.3            #afstand sensor met een vol reservoir
@@ -49,12 +51,11 @@ def lees_temperatuur():
     if equals_pos != -1:
         temp_string = line2[1][equals_pos + 2:]
         temp_c = float(temp_string) / 1000.0
-        round(temp_c, 1)
         return temp_c
 
 
 def lcd():
-    LCD.WriteText(scherm, "Reservoir: " + str(meting_naar_liter()) + "L" + "Temp: " + str(round(lees_temperatuur(), 1)) + chr(223) + "C")
+    LCD.WriteText(scherm, "Reservoir: " + str(format(meting_naar_liter(),'.2f')) + "L" + "Temp: " + str(format(lees_temperatuur(),'.1f')) + chr(223) + "C")
 
 
 def waterpomp_aan():
@@ -64,6 +65,7 @@ def waterpomp_aan():
 def waterpomp_uit():
     GPIO.output(waterpomp, GPIO.LOW)
 
+
 def meting_naar_liter():
     a = (volume_vol - volume_leeg) / (meting_vol - meting_leeg)
     b = volume_leeg - a * meting_leeg
@@ -71,9 +73,29 @@ def meting_naar_liter():
     return liter
 
 
+def tijdstip():
+    tijd = time.strftime('%Y-%m-%d %H:%M:%S')
+    return tijd
+
+
+
 try:
-    print(str(lees_reservoir()) + " cm " + str(round(meting_naar_liter(), 2)) + " L")
+    print(tijdstip())
+    tijd = tijdstip()
+    temperatuur = round(lees_temperatuur(),1)
+    reservoir_voor_pompen = round(meting_naar_liter(),2)
+    print("Voor Pompen: " + str(reservoir_voor_pompen) + " L")
+    # waterpomp_aan()
+    # time.sleep(15)
+    # waterpomp_uit()
+    reservoir_na_pompen = round(meting_naar_liter(),2)
+    print("Na Pompen: "+ str(reservoir_na_pompen) + " L")
+    verbruik = reservoir_voor_pompen - reservoir_na_pompen
     lcd()
+    print("Verbruik: "+ str(round(verbruik,2)) + " L")
+    DbClass.setDataToDatabase(DbClass(), tijd, temperatuur, round(reservoir_na_pompen,2), round(verbruik,2))
+    LCD.uitzetten(scherm)
+
 
 except(KeyboardInterrupt):
     LCD.uitzetten(scherm)
