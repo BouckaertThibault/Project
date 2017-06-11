@@ -85,9 +85,9 @@ try:
     temperatuur = round(lees_temperatuur(),1)
     reservoir_voor_pompen = round(meting_naar_liter(),2)
     print("Voor Pompen: " + str(reservoir_voor_pompen) + " L")
-    # waterpomp_aan()
-    # time.sleep(15)
-    # waterpomp_uit()
+    waterpomp_aan()
+    time.sleep(15)
+    waterpomp_uit()
     reservoir_na_pompen = round(meting_naar_liter(),2)
     print("Na Pompen: "+ str(reservoir_na_pompen) + " L")
     verbruik = reservoir_voor_pompen - reservoir_na_pompen
