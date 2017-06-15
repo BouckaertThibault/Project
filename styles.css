@@ -1,0 +1,409 @@
+/*-=-=-=-=-*/
+/*RESET CSS*/
+/*-=-=-=-=-*/
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {margin:0; padding:0; border:0; outline:0; font-size:100%; vertical-align:baseline; background:transparent;} body {line-height: 1;}ol, ul{list-style:none;} blockquote, q{quotes:none;} blockquote:before, blockquote:after, q:before, q:after{content:'';content:none;} :focus{outline:0;} ins{text-decoration:none;} del{text-decoration:line-through;} table{border-collapse:collapse; border-spacing:0;}
+
+/*-=-=*/
+/*MAIN*/
+/*-=-=*/
+@import url(https://fonts.googleapis.com/css?family=Lato:300,400,700);
+
+
+body { 
+	font-size: 1.05em;
+	line-height: 1.25em;
+	font-family: Lato, Arial, Helvetica, sans-serif;
+	background: #f9f9f9;
+	color: #555;
+}
+
+a {
+
+	color: #FFF;
+	text-decoration: none;
+	font-weight: bold;
+
+}
+
+a:hover {
+
+	color: #444;
+
+}
+
+img {
+
+	width: 100%;
+
+}
+
+/*-=-*/
+/*NAV*/
+/*-=-*/
+
+header {
+
+	background: #146d88;
+	width: 100%;
+	height: 76px;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 100;
+
+}
+
+#logo{
+	padding-left: 20px;
+	float: left;
+	width: 76px;
+	height: 76px;
+	background: url(../img/logo.png) no-repeat center;
+	display: block;
+	background-size: contain;
+
+}
+
+nav {
+
+	float: right;
+	padding: 20px;	
+	
+}
+
+
+ul {
+
+	list-style: none;
+
+}
+
+li {
+
+	display: inline-block;
+	float: left;
+	padding: 10px
+
+}
+
+.uitloggen {
+
+	color: #ffffff;
+	font-weight: bold;
+
+}
+
+/*-=-=-=-*/
+/*CONTENT*/
+/*-=-=-=-*/
+
+
+section {
+
+	margin: 80px auto 40px;
+	max-width: 980px;
+	position: relative;
+	padding: 20px 20px 20px 20px;
+
+}
+
+h1 {
+
+	font-size: 2em;
+	color: #E44B00;
+	line-height: 1.15em;
+	margin: 20px 0 ;
+
+}
+
+p {
+
+	line-height: 1.45em;
+	margin-bottom: 20px;
+
+}
+
+/*-=-=-*/
+/*TABLE*/
+/*-=-=-*/
+
+.row {
+  padding: 0.5em;
+  text-align: left;
+}
+
+table {
+  width: 100%;
+}
+
+table tr th {
+  padding: 0.5em;
+  text-align: left;
+  background-color: #aaa;
+  color: #fff;
+}
+
+table tr:nth-child(even) {
+  background-color: #ddd;
+}
+
+table tr td {
+  padding: 0.5em;
+  text-align: left;
+}
+
+
+.btn.block {
+    display: block !important;
+}
+
+.btn.circular {
+  border-radius: 50em !important;
+}
+
+
+
+/*-=-=-=-*/
+/*FOOTER*/
+/*-=-=-=*/
+
+.footer-distributed{
+	background-color: #292c2f;
+	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+	box-sizing: border-box;
+	width: 100%;
+	text-align: left;
+	font: 14px Lato medium;
+	padding: 45px 80px;
+	margin-top: 80px;
+	position: fixed;
+    bottom: 0;
+}
+
+.footer-distributed .footer-left p{
+	color:  #8f9296;
+	font-size: 12px;
+	margin: 0;
+}
+
+.footer-distributed p.footer-links{
+	font-size:14px;
+	font-weight: normal;
+	color:  #ffffff;
+	margin: 0 0 10px;
+	padding: 0;
+}
+
+.footer-distributed p.footer-links a{
+	display:inline-block;
+	line-height: 1.8;
+	text-decoration: none;
+	color:  inherit;
+}
+
+.footer-distributed .footer-right{
+	float: right;
+	margin-top: 6px;
+	max-width: 180px;
+}
+
+.footer-distributed .footer-right a{
+	display: inline-block;
+	width: 35px;
+	height: 35px;
+	background-color:  #33383b;
+	border-radius: 2px;
+	font-size: 20px;
+	color: #ffffff;
+	text-align: center;
+	line-height: 35px;
+	margin-left: 3px;
+}
+
+
+/*-=-=-=-=-=-=-=-=-=-*/
+/*INDEX BOX LINKS*/
+/*-=-=-=-=-=-=-=-=-=-*/
+.container {
+    max-width: 1200px !important;
+    margin: 80px 0;
+    padding-bottom:100px;
+    font-family: "Lato";
+	box-sizing: border-box;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+
+
+/*-=-=-=-=-=-=-=-=-=-*/
+/* Column Grids */
+/*-=-=-=-=-=-=-=-=-= */
+
+.col_half { width: 49%; }
+.col_third { width: 33.3%; }
+.col_fourth { width: 23.5%; }
+.col_fifth { width: 18.4%; }
+.col_sixth { width: 15%; }
+.col_three_fourth { width: 74.5%;}
+.col_twothird{ width: 66%;}
+.col_half,
+.col_third,
+.col_twothird,
+.col_fourth,
+.col_three_fourth,
+.col_fifth{
+	position: relative;
+	display:inline;
+	display: inline-block;
+	float: left;
+	margin-bottom: 20px;
+}
+.end { margin-right: 0 !important; }
+.text-center {text-align: center !important;}
+/*-=-=-=-=-=-=-=-=-=-*/
+/* Style             */
+/*-=-=-=-=-=-=-=-=-= */
+
+.at-icon-box {
+  background: #f57e57;
+  position:relative;
+  color: #fff;
+  line-height:1;
+  top:0;
+  transition:all 0.2s ease-out;
+  padding: 45px 40px;
+}
+
+.at-icon-box-text {
+  font-family: Lato;
+  font-weight:300;
+  vertical-align: middle;
+  display:table-cell;
+}
+.at-icon-box-text h4 {
+  font-size:20px;
+  font-weight: 600;
+  margin: 0 0 10px 0;
+}
+.at-icon-box-text p {
+  font-size:16px;
+  line-height:24px;
+  margin-bottom: 0;
+}
+.at-icon-box-icon {
+  display:table-cell;
+  vertical-align:top;
+  padding-left: 30px;
+}
+
+.at-icon-box:hover {
+  top:-10px;
+}
+.at-icon-box .link {
+  position:absolute;
+  top: 0;
+  left:0;
+  right:0;
+  width:100%;
+  height:100%;
+}
+
+.verbruik {
+
+	max-width: 1200px !important;
+    margin: 80px 0;
+    padding-bottom:100px;
+    font-family: "Lato";
+	box-sizing: border-box;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+
+/*-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-*/
+/*MEDIA QUERY = RESPONSIVE AANPASSINGEN*/
+/*-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-*/
+@media only screen and (max-width : 740px) {
+
+	header {
+
+			position: relative;
+
+	}
+
+	nav {
+		width: 100%;
+		padding: 0px;
+
+	}
+
+	nav ul{ 
+
+			display: block;
+			position: relative;
+			background: #FFF;
+			width: 100%;
+
+	}
+
+	nav li {
+
+			text-align: center;
+			width: 100%;
+			margin-bottom: 4px;
+			padding: 10px 0px;
+			background: #717171;
+			
+
+	}
+
+	img {
+
+		margin-top: 20px;
+
+	}
+
+	table thead {
+	    display: none;
+	 }
+
+	 table tr {
+	    display: block;
+	 }
+
+	 table tr td {
+	    border-bottom: none;
+	    display: block;
+	    padding: 0 0.5em;
+	 }
+
+     .footer-distributed{
+         padding: 34px 26px;
+         position: relative;
+         margin-top: -120px;
+     }
+
+	.footer-distributed .footer-right{
+			float: none;
+			margin: 0 auto 20px;
+	}
+
+	.footer-distributed .footer-left p.footer-links{
+			line-height: 1.8;
+	}
+
+    .container{
+        display: flex;
+        flex-direction: column;
+        margin: -40px 0;
+    }
+
+    .col_third{
+        width: 100%;
+    }
+
+
+}
+
+	

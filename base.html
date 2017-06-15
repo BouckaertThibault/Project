@@ -1,0 +1,47 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>
+	Water-o-Matic - {% block title %}
+
+        {% endblock %}
+	</title>
+
+	</title>
+	<meta name="description" content="Voorbeeld pagina">
+	<meta name="Thibault" content="Voorbeeld">
+	<meta name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <script src="https://use.fontawesome.com/d6a49e5220.js"></script>
+</head>
+
+<body>
+
+	<header>
+		<a href="/" id="logo"></a>
+		<nav>
+			<ul>
+				<li><a href='/logout' class="uitloggen">Uitloggen</a></li>
+			</ul>
+		</nav>
+	</header>
+
+	{% block body %}
+
+	{% endblock %}
+
+
+	<footer class="footer-distributed">
+			<div class="footer-left">
+				<p class="footer-links">
+					<a href="/">Home</a>
+				</p>
+				<p>Thibault &copy; 2017</p>
+			</div>
+	</footer>
+</body>
+
+</html>

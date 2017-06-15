@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block title %}
+    Index
+{% endblock %}
+
+
+{% block body %}
+    <section>
+    <div class="container">
+  <div class="col_third">
+    <div class="at-icon-box">
+      <div class="at-icon-box-text">
+        <h4>Temperatuur</h4>
+      </div>
+      <div class="at-icon-box-icon icon-right">
+          <i style="font-size: 110px;" class="fa fa-thermometer-half" aria-hidden="true"></i>
+      </div>
+      <a class="link" href="/temperatuur"></a>
+    </div>
+  </div>
+  <div class="col_third">
+    <div class="at-icon-box" style="background-color:#18AFD3 !important;">
+      <div class="at-icon-box-text">
+        <h4>Reservoir</h4>
+      </div>
+      <div class="at-icon-box-icon icon-right">
+        <i style="font-size: 110px;" class="fa fa-flask" aria-hidden="true"></i>
+      </div>
+      <a class="link" href="/reservoir"></a>
+    </div>
+  </div>
+  <div class="col_third">
+    <div class="at-icon-box" style="background-color:#4c6575 !important;">
+      <div class="at-icon-box-text">
+        <h4>Verbruik</h4>
+      </div>
+      <div class="at-icon-box-icon icon-right">
+        <i style="font-size: 110px; padding-left: 30px;" class="fa fa-tint" aria-hidden="true"></i>
+      </div>
+      <a class="link" href="/verbruik"></a>
+    </div>
+  </div>
+</div>
+    </section>
+{% endblock %}
