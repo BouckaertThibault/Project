@@ -85,6 +85,7 @@ class LCD():
         time.sleep(0.05)
 
     def WriteText(self, zin):
+        self.function_init_4bits()
         if (len(zin) > 32):
             self.ClearDisplay()
             location = 0

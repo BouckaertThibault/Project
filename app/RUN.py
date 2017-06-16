@@ -51,7 +51,11 @@ def lees_temperatuur():
     if equals_pos != -1:
         temp_string = line2[1][equals_pos + 2:]
         temp_c = float(temp_string) / 1000.0
-        return temp_c
+        if temp_c == 85.0:
+            lees_temperatuur()
+        else:
+            return temp_c
+
 
 
 def lcd():
@@ -59,10 +63,14 @@ def lcd():
 
 
 def waterpomp_aan():
+    waterpomp = 21
+    GPIO.setup(waterpomp, GPIO.OUT)
     GPIO.output(waterpomp, GPIO.HIGH)
 
 
 def waterpomp_uit():
+    waterpomp = 21
+    GPIO.setup(waterpomp, GPIO.OUT)
     GPIO.output(waterpomp, GPIO.LOW)
 
 
@@ -77,27 +85,36 @@ def tijdstip():
     tijd = time.strftime('%Y-%m-%d %H:%M:%S')
     return tijd
 
-
-
-try:
+def bijpompen():
     print(tijdstip())
     tijd = tijdstip()
-    temperatuur = round(lees_temperatuur(),1)
-    reservoir_voor_pompen = round(meting_naar_liter(),2)
+    temperatuur = round(lees_temperatuur(), 1)
+    reservoir_voor_pompen = round(meting_naar_liter(), 2)
     print("Voor Pompen: " + str(reservoir_voor_pompen) + " L")
     waterpomp_aan()
-    time.sleep(15)
+    time.sleep(4)
     waterpomp_uit()
-    reservoir_na_pompen = round(meting_naar_liter(),2)
-    print("Na Pompen: "+ str(reservoir_na_pompen) + " L")
+    reservoir_na_pompen = round(meting_naar_liter(), 2)
+    print("Na Pompen: " + str(reservoir_na_pompen) + " L")
     verbruik = reservoir_voor_pompen - reservoir_na_pompen
     lcd()
-    print("Verbruik: "+ str(round(verbruik,2)) + " L")
-    DbClass.setDataToDatabase(DbClass(), tijd, temperatuur, round(reservoir_na_pompen,2), round(verbruik,2))
+    print("Verbruik: " + str(round(verbruik, 2)) + " L")
+    DbClass.setDataToDatabase(DbClass(), tijd, temperatuur, round(reservoir_na_pompen, 2), round(verbruik, 2))
     LCD.uitzetten(scherm)
 
 
-except(KeyboardInterrupt):
-    LCD.uitzetten(scherm)
+while True:
+    try:
+        if lees_waterbak() >= 26.9:
+            bijpompen()
+            time.sleep(60)
+        else:
+            print('Geen water nodig.')
+            time.sleep(60)
+
+
+
+    except(KeyboardInterrupt):
+        LCD.uitzetten(scherm)
 
 
