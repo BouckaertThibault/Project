@@ -3,10 +3,19 @@ from flask import flash, redirect, render_template, request, session, abort
 import os
 import pygal
 from DbClass import DbClass
-
+from pygal.style import Style
 
 app = Flask(__name__)
 
+TemperatuurStyle = Style(
+  font_family='Lato',
+  colors=('#f57e57','#f57e57')
+)
+
+ReservoirStyle = Style(
+  font_family='Lato',
+  colors=('#18AFD3','#18AFD3')
+)
 
 @app.route('/')
 def index():
@@ -18,7 +27,9 @@ def index():
 
 @app.route('/login', methods=['POST'])
 def do_admin_login():
-    if request.form['password'] == 'admin12345' and request.form['username'] == 'admin':
+    Database = DbClass()
+    value = DbClass.getPass(Database, request.form['username'])
+    if request.form['password'] == value:
         session['logged_in'] = True
     else:
         flash('wrong password!')
@@ -36,7 +47,7 @@ def temperatuur():
     if not session.get('logged_in'):
         return render_template('login.html')
     else:
-        graph = pygal.Line()
+        graph = pygal.Line(style=TemperatuurStyle)
         graph.title = 'Gemeten temperatuur'
         graph.x_labels = DbClass.getDatum(DbClass())
         graph.add('Temperatuur', DbClass.getTemperatuur(DbClass()))
@@ -51,10 +62,10 @@ def reservoir():
     if not session.get('logged_in'):
         return render_template('login.html')
     else:
-        graph = pygal.Line()
+        graph = pygal.Line(style=ReservoirStyle)
         graph.title = 'Aantal liter in reservoir'
         graph.x_labels = DbClass.getDatum(DbClass())
-        graph.add('Reservoir', DbClass.getTemperatuur(DbClass()))
+        graph.add('Reservoir', DbClass.getReservoir(DbClass()))
         graph_data = graph.render_data_uri()
         return render_template('reservoir.html', graph_data=graph_data)
 
@@ -76,7 +87,7 @@ def pageNotFound(error):
         return render_template('404.html',error=error)
 
 
+
 if __name__ == '__main__':
     app.secret_key = os.urandom(12)
     app.run(debug=True, host='192.168.1.133')
-
