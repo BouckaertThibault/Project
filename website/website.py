@@ -90,4 +90,4 @@ def pageNotFound(error):
 
 if __name__ == '__main__':
     app.secret_key = os.urandom(12)
-    app.run(debug=True, host='192.168.1.133')
+    app.run(debug=True, host='169.254.10.1')
