@@ -5,9 +5,13 @@
 
 
 {% block body %}
+    <div class="grafiek" align="left">
+			<embed type="image/svg+xml" src={{graph_data|safe}} style='max-width:1000px;max-height:530px;'/>
+    </div>
 
-    <div class="container" align="left">
-			<embed type="image/svg+xml" src={{graph_data|safe}} style='max-width:1000px'/>
+    <div class="nextpage">
+    <a href="/reservoir"><div class="reservoir_button" style="margin-bottom: 10px;"><p>Reservoir &rarr;</p></div></a>
+    <a href="/verbruik"><div class="verbruik_button"><p>Verbruik &rarr;</p></div></a>
     </div>
 
 {% endblock %}
