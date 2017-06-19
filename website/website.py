@@ -65,7 +65,7 @@ def reservoir():
         graph = pygal.Line(style=ReservoirStyle)
         graph.title = 'Aantal liter in reservoir'
         graph.x_labels = DbClass.getDatum(DbClass())
-        graph.add('Reservoir', DbClass.getReservoir(DbClass()))
+        graph.add('Reservoir', DbClass.getTemperatuur(DbClass()))
         graph_data = graph.render_data_uri()
         return render_template('reservoir.html', graph_data=graph_data)
 
@@ -75,7 +75,7 @@ def verbruik():
     if not session.get('logged_in'):
         return render_template('login.html')
     else:
-        verbruik = DbClass.getVerbruikTotaal(DbClass())
+        verbruik = round(float(DbClass.getVerbruikTotaal(DbClass())),2)
         return render_template('verbruik.html', verbruik=verbruik)
 
 
