@@ -310,16 +310,61 @@ table tr td {
 }
 
 .verbruik {
+	position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 230px;
+  height: 100px;
+	text-align: center;
+	font-size: 34px;
+}
 
-	max-width: 1200px !important;
+.grafiek{
+	 max-width: 1200px !important;
     margin: 80px 0;
-    padding-bottom:100px;
     font-family: "Lato";
 	box-sizing: border-box;
     margin-left: auto !important;
     margin-right: auto !important;
 }
 
+.nextpage{
+	position: absolute;
+    margin: auto;
+    top: 60%;
+    right: 0;
+    bottom: 0;
+    left: 90%;
+	text-align: center;
+	color: white;
+}
+
+.reservoir_button{
+	border-radius: 5px;
+	padding-top: 13px;
+	height: 40px;
+    width: 130px;
+	background-color: #18AFD3;
+}
+
+.verbruik_button{
+	border-radius: 5px;
+	padding-top: 13px;
+	height: 40px;
+    width: 130px;
+	background-color: #4c6575;
+}
+
+.temperatuur_button{
+	border-radius:5px;
+	padding-top: 13px;
+	height: 40px;
+    width: 130px;
+	background-color: #f57e57;
+}
 
 /*-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-*/
 /*MEDIA QUERY = RESPONSIVE AANPASSINGEN*/
@@ -380,8 +425,9 @@ table tr td {
 
      .footer-distributed{
          padding: 34px 26px;
-         position: relative;
          margin-top: -120px;
+		 position: fixed;
+		 bottom: 0;
      }
 
 	.footer-distributed .footer-right{
@@ -403,6 +449,9 @@ table tr td {
         width: 100%;
     }
 
+	.grafiek{
+
+	}
 
 }
 
