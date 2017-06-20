@@ -103,18 +103,19 @@ def bijpompen():
     LCD.uitzetten(scherm)
 
 
-while True:
-    try:
-        if lees_waterbak() >= 26.9:
-            bijpompen()
-            time.sleep(60)
-        else:
-            print('Geen water nodig.')
-            time.sleep(60)
+try:  
+    scherm.function_init_4bits()    
+        while True:
+    
+            if lees_waterbak() >= 26.9:
+                bijpompen()
+                time.sleep(60)
+            else:
+                print('Geen water nodig.')
+                time.sleep(60)
 
 
-
-    except(KeyboardInterrupt):
+except(KeyboardInterrupt):
         LCD.uitzetten(scherm)
 
 
